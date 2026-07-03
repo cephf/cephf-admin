@@ -1,5 +1,5 @@
 import AuthButton from "../../components/shared/inputs/AuthButton";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../../components/layouts/AuthLayout";
 import PasswordInput from "../../components/shared/inputs/PasswordInput";
 import { useState } from "react";
 

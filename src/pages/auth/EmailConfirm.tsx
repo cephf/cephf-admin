@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link } from "react-router-dom";
 
 const EmailConfirm = () => {
