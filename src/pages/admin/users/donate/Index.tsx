@@ -2,7 +2,7 @@ import { AppDrawer } from "@/components/shared/drawer/DataDrawer";
 import { SearchInput } from "@/components/shared/inputs/SearchInput";
 import { SelectInput } from "@/components/shared/inputs/SelecctInput";
 import { DataTable } from "@/components/shared/table/DataTable";
-import { userColumns, type Data } from "@/data/table-colums/donate-column";
+import { userColumns, type Data } from "@/data/table-colums/users-column";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 export const data: Data[] = [
@@ -155,22 +155,26 @@ const DonatepPage = () => {
           title={selectedUser?.title}
         >
           {selectedUser && (
-            <div className="space-y-4">
-              <div>
-                <p className="font-semibold">Name</p>
-                <p>{selectedUser.fullName}</p>
-              </div>
+             <div className="space-y-5 mt-12">
+             <div>
+               <p className="font-semibold">Name:</p>
+               <p>{selectedUser.fullName}</p>
+             </div>
 
-              <div>
-                <p className="font-semibold">Email</p>
-                <p>{selectedUser.email}</p>
-              </div>
-
-              <div>
-                <p className="font-semibold">Message</p>
-                <p>{selectedUser.message}</p>
-              </div>
-            </div>
+             <div>
+               <p className="font-semibold">Email:</p>
+               <p>{selectedUser.email}</p>
+             </div>
+             <div>
+               <p className="font-semibold">Phone number:</p>
+               <p>{selectedUser.phone}</p>
+             </div>
+             <div>
+               <p className="font-semibold">Message:</p>
+               <p>{selectedUser.message}</p>
+             </div>
+            
+           </div>
           )}
         </AppDrawer>
       </div>

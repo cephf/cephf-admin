@@ -2,7 +2,7 @@ import { AppDrawer } from "@/components/shared/drawer/DataDrawer";
 import { SearchInput } from "@/components/shared/inputs/SearchInput";
 import { SelectInput } from "@/components/shared/inputs/SelecctInput";
 import { DataTable } from "@/components/shared/table/DataTable";
-import { involvedColumn, type Data } from "@/data/table-colums/users-column";
+import { BlogColumn, type Data } from "@/data/table-colums/content-columns";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 export const data: Data[] = [
@@ -14,8 +14,6 @@ export const data: Data[] = [
     message:
       "I'd like to discuss redesigning our company website for better performance and accessibility.",
     image: "/images/users/user-1.jpg",
-    position: "internship",
-    phone: "0900998844",
   },
   {
     id: "2",
@@ -25,8 +23,6 @@ export const data: Data[] = [
     message:
       "I'm interested in collaborating on your environmental research initiatives.",
     image: "/images/users/user-2.jpg",
-    position: "fellowship",
-    phone: "0900998844",
   },
   {
     id: "3",
@@ -36,8 +32,6 @@ export const data: Data[] = [
     message:
       "I would love to volunteer for your upcoming community outreach program.",
     image: "/images/users/user-3.jpg",
-    position: "partnership",
-    phone: "0900998844",
   },
   {
     id: "4",
@@ -47,8 +41,6 @@ export const data: Data[] = [
     message:
       "Our organization is interested in exploring a partnership with your foundation.",
     image: "/images/users/user-4.jpg",
-    position: "volunteer",
-    phone: "0900998844",
   },
   {
     id: "5",
@@ -58,8 +50,6 @@ export const data: Data[] = [
     message:
       "I'd like more information on how to support your projects through donations.",
     image: "/images/users/user-5.jpg",
-    position: "partnership",
-    phone: "0900998844",
   },
   {
     id: "6",
@@ -69,8 +59,6 @@ export const data: Data[] = [
     message:
       "Do you offer environmental awareness training for schools and organizations?",
     image: "/images/users/user-6.jpg",
-    position: "volunteer",
-    phone: "0900998844",
   },
   {
     id: "7",
@@ -80,8 +68,6 @@ export const data: Data[] = [
     message:
       "I'm a final-year student looking for internship opportunities with your team.",
     image: "/images/users/user-7.jpg",
-    position: "coporate",
-    phone: "0900998844",
   },
   {
     id: "8",
@@ -91,33 +77,9 @@ export const data: Data[] = [
     message:
       "I'd like to know more about your ongoing projects and how I can get involved.",
     image: "/images/users/user-8.jpg",
-    position: "volunteer",
-    phone: "0900998844",
-  },
-  {
-    id: "9",
-    title: "Internship Opportunity",
-    fullName: "Daniel Lee",
-    email: "daniel.lee@example.com",
-    message:
-      "I'm a final-year student looking for internship opportunities with your team.",
-    image: "/images/users/user-7.jpg",
-    position: "coporate",
-    phone: "0900998844",
-  },
-  {
-    id: "10",
-    title: "General Inquiry",
-    fullName: "Olivia Martinez",
-    email: "olivia.martinez@example.com",
-    message:
-      "I'd like to know more about your ongoing projects and how I can get involved.",
-    image: "/images/users/user-8.jpg",
-    position: "volunteer",
-    phone: "0900998844",
   },
 ];
-const InvolvedPage = () => {
+const BlogPage = () => {
   const [selectedUser, setSelectedUser] = useState<Data | null>(null);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
@@ -180,10 +142,10 @@ const InvolvedPage = () => {
       </div>
       <div className="mt-4">
         <DataTable
-          columns={involvedColumn}
+          columns={BlogColumn}
           data={data}
           page={page}
-          pageCount={Math.round(data.length / 8)}
+          pageCount={10}
           onPageChange={handlePageChange}
           onRowClick={handleRowClick}
         />
@@ -193,26 +155,19 @@ const InvolvedPage = () => {
           title={selectedUser?.title}
         >
           {selectedUser && (
-            <div className="space-y-5 mt-12">
+            <div className="space-y-4">
               <div>
-                <p className="font-semibold">Full Name:</p>
+                <p className="font-semibold">Name</p>
                 <p>{selectedUser.fullName}</p>
               </div>
 
               <div>
-                <p className="font-semibold">Email:</p>
+                <p className="font-semibold">Email</p>
                 <p>{selectedUser.email}</p>
               </div>
+
               <div>
-                <p className="font-semibold">Phone number:</p>
-                <p>{selectedUser.phone}</p>
-              </div>
-              <div>
-                <p className="font-semibold">Position:</p>
-                <p>{selectedUser.position}</p>
-              </div>
-              <div>
-                <p className="font-semibold">Message:</p>
+                <p className="font-semibold">Message</p>
                 <p>{selectedUser.message}</p>
               </div>
             </div>
@@ -222,4 +177,4 @@ const InvolvedPage = () => {
     </div>
   );
 };
-export default InvolvedPage;
+export default BlogPage;

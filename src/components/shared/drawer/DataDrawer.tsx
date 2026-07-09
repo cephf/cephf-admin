@@ -27,11 +27,11 @@ export function AppDrawer({
         <div className="mx-auto w-full max-w-lg">
           {title && (
             <DrawerHeader className="px-0">
-              <DrawerTitle>{title}</DrawerTitle>
+              <DrawerTitle className="text-xl">{title}</DrawerTitle>
             </DrawerHeader>
           )}
 
-          {children}
+          {children} 
         </div>
       </DrawerContent>
     </Drawer>

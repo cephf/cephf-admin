@@ -1,13 +1,10 @@
 
 import Container from "@/components/shared/inputs/Container";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "../../ui/sidebar";
+import { SidebarInset, SidebarProvider } from "../../ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
+import { Outlet } from "react-router-dom";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout() {
   return (
     <SidebarProvider  >
       <AppSidebar />
@@ -18,7 +15,7 @@ export default function DashboardLayout({
           {/* Breadcrumb / page title goes here */}
         </header>
 
-        <Container>{children}</Container>
+        <Container> <Outlet /></Container>
       </SidebarInset>
     </SidebarProvider>
   );

@@ -16,8 +16,12 @@ import logo from "../../../assets/images/cephflogo.png";
 const navMain = [
   {
     title: "Overview",
-    items: [{ title: "Users", url: "/" }],
+    items: [
+      { title: "Users", url: "/" },
+      { title: "Content Management", url: "/content-management" },
+    ],
   },
+  
 ];
 
 export function AppSidebar() {
@@ -51,7 +55,7 @@ export function AppSidebar() {
                       <SidebarMenuButton
                         asChild
                         isActive={isActive}
-                        className="data-[active=true]:[background:linear-gradient(233.89deg,#A0F88A_-3.62%,#186D0F_47.04%)] py-2 px-3 rounded-[20px]"
+                        className="data-[active=true]:[background:linear-gradient(233.89deg,#A0F88A_-3.62%,#186D0F_47.04%)] py-2 mb-3 px-3 rounded-[20px]"
                       >
                         <Link to={item.url}>
                           <span

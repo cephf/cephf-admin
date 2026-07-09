@@ -2,7 +2,7 @@ import { AppDrawer } from "@/components/shared/drawer/DataDrawer";
 import { SearchInput } from "@/components/shared/inputs/SearchInput";
 import { SelectInput } from "@/components/shared/inputs/SelecctInput";
 import { DataTable } from "@/components/shared/table/DataTable";
-import { userColumns, type Data } from "@/data/table-colums/donate-column";
+import { contactColumn, type Data } from "@/data/table-colums/users-column";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 export const data: Data[] = [
@@ -14,6 +14,7 @@ export const data: Data[] = [
     message:
       "I'd like to discuss redesigning our company website for better performance and accessibility.",
     image: "/images/users/user-1.jpg",
+    phone: "0908487739",
   },
   {
     id: "2",
@@ -23,6 +24,7 @@ export const data: Data[] = [
     message:
       "I'm interested in collaborating on your environmental research initiatives.",
     image: "/images/users/user-2.jpg",
+    phone: "0908487739",
   },
   {
     id: "3",
@@ -32,6 +34,7 @@ export const data: Data[] = [
     message:
       "I would love to volunteer for your upcoming community outreach program.",
     image: "/images/users/user-3.jpg",
+    phone: "0908487739",
   },
   {
     id: "4",
@@ -41,6 +44,7 @@ export const data: Data[] = [
     message:
       "Our organization is interested in exploring a partnership with your foundation.",
     image: "/images/users/user-4.jpg",
+    phone: "0908487739",
   },
   {
     id: "5",
@@ -50,6 +54,7 @@ export const data: Data[] = [
     message:
       "I'd like more information on how to support your projects through donations.",
     image: "/images/users/user-5.jpg",
+    phone: "0908487739",
   },
   {
     id: "6",
@@ -59,6 +64,7 @@ export const data: Data[] = [
     message:
       "Do you offer environmental awareness training for schools and organizations?",
     image: "/images/users/user-6.jpg",
+    phone: "0908487739",
   },
   {
     id: "7",
@@ -68,6 +74,7 @@ export const data: Data[] = [
     message:
       "I'm a final-year student looking for internship opportunities with your team.",
     image: "/images/users/user-7.jpg",
+    phone: "0908487739",
   },
   {
     id: "8",
@@ -77,6 +84,7 @@ export const data: Data[] = [
     message:
       "I'd like to know more about your ongoing projects and how I can get involved.",
     image: "/images/users/user-8.jpg",
+    phone: "0908487739",
   },
 ];
 const ContaactPage = () => {
@@ -142,37 +150,43 @@ const ContaactPage = () => {
       </div>
       <div className="mt-4">
         <DataTable
-          columns={userColumns}
+          columns={contactColumn}
           data={data}
           page={page}
           pageCount={10}
           onPageChange={handlePageChange}
           onRowClick={handleRowClick}
         />
-        <AppDrawer
+       <div >
+       <AppDrawer
           open={open}
           onOpenChange={setOpen}
           title={selectedUser?.title}
         >
           {selectedUser && (
-            <div className="space-y-4">
+            <div className="space-y-5 mt-12">
               <div>
-                <p className="font-semibold">Name</p>
+                <p className="font-semibold">Name:</p>
                 <p>{selectedUser.fullName}</p>
               </div>
 
               <div>
-                <p className="font-semibold">Email</p>
+                <p className="font-semibold">Email:</p>
                 <p>{selectedUser.email}</p>
               </div>
-
               <div>
-                <p className="font-semibold">Message</p>
+                <p className="font-semibold">Phone number:</p>
+                <p>{selectedUser.phone}</p>
+              </div>
+              <div>
+                <p className="font-semibold">Message:</p>
                 <p>{selectedUser.message}</p>
               </div>
+             
             </div>
           )}
         </AppDrawer>
+       </div>
       </div>
     </div>
   );
