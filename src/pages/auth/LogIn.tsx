@@ -54,7 +54,7 @@ const LogIn = () => {
         <AuthLayout title="Email has been sent">
           <div className="p-4 mt-8 rounded-[16px] bg-[#FAFAFA]">
             <p className="font-normal text-sm text-[#0D0D0D99]">
-              Thanks Admin! we've sent you an email containing further
+              Thanks Admin!! we've sent you an email containing further
               instructions for resetting your password.
               <br />
               <br />
