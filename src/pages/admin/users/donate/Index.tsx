@@ -31,13 +31,15 @@ const DonatePage = () => {
     setSearchParams(params);
   };
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["submissions", { debounceSearch }, page],
+    queryKey: ["submissions", "donate",{ debounceSearch }, page],
     queryFn: () =>
       apiRequestWithParams("/submissions", {
         formType: "donate",
         page: page,
         ...(debounceSearch.length > 0 ? { limit: 1000 } : { limit: 10 }),
       }),
+      staleTime: 5 * 60 * 1000, 
+      gcTime: 30 * 60 * 1000, 
     placeholderData:
       debounceSearch.length > 0 ? (previousData) => previousData : undefined,
   });

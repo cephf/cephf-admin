@@ -17,6 +17,7 @@ const UsersPage = () => {
   const handleTabChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("tab", value);
+    params.delete("page");
     setSearchParams(params);
   };
 

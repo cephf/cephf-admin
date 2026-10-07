@@ -25,13 +25,15 @@ const InvolvedPage = () => {
     setSearchParams(params);
   };
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["submissions", { search }, page],
+    queryKey: ["submissions", "partnership", { search }, page],
     queryFn: () =>
       apiRequestWithParams("/submissions", {
         formType: "partnership",
         page: page,
         ...(search.length > 0 ? { limit: 1000 } : { limit: 10 }),
       }),
+      staleTime: 5 * 60 * 1000, 
+      gcTime: 30 * 60 * 1000, 
     placeholderData:
       search.length > 0 ? (previousData) => previousData : undefined,
   });
